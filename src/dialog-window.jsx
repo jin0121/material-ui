@@ -53,9 +53,7 @@ var DialogWindow = React.createClass({
   componentDidMount: function() {
     this._positionDialog();
     if (this.props.openImmediately) {
-      this.refs.dialogOverlay.preventScrolling();
-      this._onShow();
-      this._focusOnAction();
+      this.show();
     }
   },
 
@@ -156,12 +154,19 @@ var DialogWindow = React.createClass({
   },
 
   _getAction: function(actionJSON, key) {
-    var onClickHandler = actionJSON.onClick ? actionJSON.onClick : this.dismiss;
     var styles = {marginRight: 8};
     var props = {
       key: key,
       secondary: true,
-      onClick: onClickHandler,
+      onClick: actionJSON.onClick,
+      onTouchTap: () => {
+        if (actionJSON.onTouchTap) {
+          actionJSON.onTouchTap.call(undefined);
+        }
+        if (!(actionJSON.onClick || actionJSON.onTouchTap)) {
+          this.dismiss();
+        }
+      },
       label: actionJSON.text,
       style: styles
     };

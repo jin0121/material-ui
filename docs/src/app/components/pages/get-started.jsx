@@ -13,7 +13,7 @@ class GetStarted extends React.Component {
       },
       fullWidthSection: {
         maxWidth: '650px',
-        margin: '0 auto'      
+        margin: '0 auto'
       },
       headline: {
         fontSize: '24px',
@@ -47,6 +47,14 @@ class GetStarted extends React.Component {
           '  mui = require(\'material-ui\'),\n' +
           '  RaisedButton = mui.RaisedButton;\n\n' +
           'var SomeAwesomeComponent = React.createClass({\n\n' +
+          '  childContextTypes: {\n' +
+          '    muiTheme: React.PropTypes.object\n' +
+          '  },\n\n' +
+          '  getChildContext: function() {\n' +
+          '    return {\n' +
+          '      muiTheme: ThemeManager.getCurrentTheme()\n' +
+          '    };\n' +
+          '  },\n\n' +
           '  render: function() {\n' +
           '    return (\n' +
           '        <RaisedButton label="Default" />\n' +
@@ -86,8 +94,7 @@ class GetStarted extends React.Component {
           <h2 style={styles.headline}>Installation</h2>
           <p>
             Material-UI is available as an <a href="https://www.npmjs.org/package/material-ui">npm package</a>.
-            Use <a href="http://browserify.org/">browserify</a> and <a href="https://github.com/andreypopp/reactify">reactify</a> for
-            dependency management and JSX transformation. 
+            After npm install, you will find all the .jsx files in the /src folder and their compiled versions in the /lib folder.
           </p>
 
           <h3 style={styles.title}>React-Tap-Event-Plugin</h3>

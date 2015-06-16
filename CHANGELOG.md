@@ -1,3 +1,59 @@
+## 0.9.1
+###### _Jun 14, 2015_
+
+##### General
+The following components have been modified to allow for style overrides:
+Radio Button Group, Radio Button, Enhanced Switch Label, Text Field, Toggle, Checkbox (#807)
+
+##### New Components
+- List, ListItem, ListDivider, Avatar (#836)
+
+##### Components
+- Checkbox - Added checkedIcon and unCheckedIcon props. This is useful to create icon toggles.
+- Dialog - Fixed a bug with the open immediately flag (#810)
+- DropDownIcon - Added support for icon ligature (#806)
+- Menu - Fixed a style problem (#843)
+- RadioButtonGroup - Fixed a bug with mapping Radio children (#820)
+- Slider - Fixed a glitch that happened when click on the slider handle (#833)
+- TextField - Added fullWidth prop (#827)
+- TimePicker
+  - Fixed a bug with the defaultTime setting (#822)
+  - Fixed clock handles on Firefox (#825)
+
+## 0.9.0
+###### _Jun 9, 2015_
+
+##### Breaking
+We've cleaned up some of our click/tap events. (#771) Upgrade should be straight forward, please see below:
+- DropDownIcon - closeOnMenuItemClick has been replaced with closeOnMenuItemTouchTap.
+- Menu - onItemClick has been removed; use onItemTap instead.
+- MenuItem - onClick event has been removed; use onTouchTap instead.
+
+##### General
+- ClickAwayable is now bound to onTouchTap instead of onClick (#766)
+
+##### Components
+- AppBar will now render its children (#725)
+- DatePicker will now properly handle defaultDate prop changes (#722)
+- Dialog actions now respond to onTouchTap (#752)
+- LeftNav
+  - Fixed line height style bug (#742)
+  - Fixed a bug that caused the LeftNav to immediately close on iOS full screen mode (#751, #366)
+- Menu
+  - Will now adjust its height when props change (#544, #203)
+  - MenuItemStyle prop is now passed down to nested menus (#802)
+- RadioButtonGroup can now have its styles overridden (#768)
+- RaisedButtons - Fixed a bug that caused incorrect transitions (#731, #702)
+- SvgIcon - ViewBox can now be passed in as a prop (#747)
+- Tabs - Components inside tabs now keep their state when switching between tabs (#700, #450)
+- TextField
+  - Multi-line text fields can now be initialized with a certain number of rows (#693)
+  - Fixed style bug that caused width to not be set on disabled text-fields
+  - Fixed style bug that caused focus underline to be black
+  - Fixed style problem that caused text to jump on multi-line inputs
+- Theme (New)
+  - This is a high order component that can be used to set your theme overrides (#797)
+
 ## 0.8.0
 ###### _May 24, 2015_
 
@@ -34,7 +90,7 @@
   - An example would be: `var SvgIcon = require('material-ui/lib/svg-icon);`
   - The `/lib` folder in Material-UI contains the file structure needed when referencing individual components. 
 
-###### Components
+##### Components
 - Date Picker
   - Added AutoOK Prop (#658)
   - Added ability to specify min and max dates (#658)
@@ -44,7 +100,6 @@
 - Linear and Circular Progress Indicators - NEW (#632)
 - TimePicker - NEW (#589)
 
-
 ## 0.7.5
 ###### _Apr. 27, 2015_
 
@@ -52,7 +107,7 @@
 - Removed deprecation warnings by replacing `this.getDOMNode()` with `React.findDOMNode()` (#558)
 - Replaced `process.NODE_ENV` with `process.env.NODE_ENV` (#573)
 
-###### Components
+##### Components
 - DropDownMenu
   - Fixed `props is not defined` error when `onChange` is invoked (#556)
 - Floating Action Button
